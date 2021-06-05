@@ -8,16 +8,26 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
-    class SpecificationEvaluator<TEntity> where TEntity:BaseEntity
+    class SpecificationEvaluator<TEntity> where TEntity : BaseEntity
     {
         public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery,
             ISpecification<TEntity> spec)
         {
             var query = inputQuery;
-            if (spec.Criteria!=null)
+            if (spec.Criteria != null)
             {
                 // generic solution for Where Clause
                 query = query.Where(spec.Criteria);
+            }
+
+            if (spec.OrderBy != null)
+            {
+                query = query.OrderBy(spec.OrderBy);
+            }
+
+            if (spec.OrderByDescending != null)
+            {
+                query = query.OrderByDescending(spec.OrderByDescending);
             }
 
             // generic solution for Include Statement
