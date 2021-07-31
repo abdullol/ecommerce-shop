@@ -10,6 +10,7 @@ export class ProductItemComponent implements OnInit {
   @Input() product: IProduct;
 
   constructor() {
+    console.log('all products list: ', this.product);
   }
 
   ngOnInit(): void {}

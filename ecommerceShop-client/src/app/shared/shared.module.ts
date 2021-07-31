@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppModule } from '../app.module';
-import { ShopModule } from '../shop/shop.module';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    AppModule,
-    ShopModule,
+    PaginationModule.forRoot()
   ],
+  exports: [PaginationModule]
 })
 export class SharedModule { }
