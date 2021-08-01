@@ -9,7 +9,7 @@ import { CoreModule } from './core/core.module';
 import { ShopModule } from './shop/shop.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
