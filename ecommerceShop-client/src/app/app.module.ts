@@ -8,6 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { LoadingInterceptor } from './core/interceptors/loading,interceptors';
+// import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { LoadingInterceptor } from './core/interceptors/loading,interceptors';
     HttpClientModule,
     CoreModule,
     HomeModule,
+    // NgxSpinnerModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
