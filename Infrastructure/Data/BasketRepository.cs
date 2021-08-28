@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace Infrastructure.Data
 {
-    class BasketRepository : IBasketRepository
+    public class BasketRepository : IBasketRepository
     {
         private readonly IDatabase _database;
         public BasketRepository(IConnectionMultiplexer redis)
