@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StackExchange.Redis;
 
 namespace API
 {
@@ -32,6 +33,15 @@ namespace API
             services.AddApplicationServices();
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddSwaggerDocumentation();
+
+            services.AddSingleton<ConnectionMultiplexer>(c =>
+            {
+                var configuration = ConfigurationOptions.Parse(config.GetConnectionString("Redis"), true);
+                return ConnectionMultiplexer.Connect(configuration);
+            });
+
+
+
             services.AddCors(opt =>
             {
                 opt.AddPolicy("CorsPolicy", policy =>
