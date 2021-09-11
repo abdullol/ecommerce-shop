@@ -34,13 +34,12 @@ namespace API
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddSwaggerDocumentation();
 
-            services.AddSingleton<ConnectionMultiplexer>(c =>
+            services.AddSingleton<IConnectionMultiplexer>(c =>
             {
-                var configuration = ConfigurationOptions.Parse(config.GetConnectionString("Redis"), true);
+                var configuration = ConfigurationOptions.Parse(config
+                     .GetConnectionString("Redis"), true);
                 return ConnectionMultiplexer.Connect(configuration);
             });
-
-
 
             services.AddCors(opt =>
             {
