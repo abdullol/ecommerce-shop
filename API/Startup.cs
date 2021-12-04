@@ -32,6 +32,7 @@ namespace API
             services.AddControllers();
 
             services.AddApplicationServices();
+            services.AddIdentityServices();
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddSwaggerDocumentation();
 
