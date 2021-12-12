@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Infrastructure.Identity.Migrations
 {
-    class AppIdentityDbContextSeed
+    public class AppIdentityDbContextSeed
     {
         public static async Task SeedUsersAsync(UserManager<AppUser> userManager)
         {
